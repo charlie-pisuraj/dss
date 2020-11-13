@@ -15,7 +15,7 @@ local volumes = import 'volumes.libsonnet';
           volumes: volumes.cockroachVolumes,
           affinity: {
             podAntiAffinity: {
-              preferredDuringSchedulingIgnoredDuringExecution: [
+              RequiredDuringSchedulingRequiredDuringExecution: [
                 {
                   weight: 100,
                   podAffinityTerm: {
