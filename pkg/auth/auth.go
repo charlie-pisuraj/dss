@@ -42,6 +42,14 @@ func (m *missingScopesError) Error() string {
 	return strings.Join(m.s, ", ")
 }
 
+type excessScopeError struct {
+	s string
+}
+
+func (m *excessScopeError) Error() string {
+	return m.s
+}
+
 // ContextWithOwner adds "owner" to "ctx".
 func ContextWithOwner(ctx context.Context, owner models.Owner) context.Context {
 	return context.WithValue(ctx, ContextKeyOwner, owner)
@@ -192,12 +200,16 @@ type anyScopesRequiredValidator struct {
 	scopes []Scope
 }
 
+type emptyScopesRequiredValidator struct {
+}
+
 func (v *anyScopesRequiredValidator) ValidateKeyClaimedScopes(ctx context.Context, scopes ScopeSet) error {
 	var (
 		missing []string
 	)
 
 	for _, scope := range v.scopes {
+		fmt.Print("Enter loop of v.scopes: ", scope)
 		if _, present := scopes[scope]; present {
 			return nil
 		}
@@ -209,12 +221,26 @@ func (v *anyScopesRequiredValidator) ValidateKeyClaimedScopes(ctx context.Contex
 	}
 }
 
+func (v *emptyScopesRequiredValidator) ValidateKeyClaimedScopes(ctx context.Context, scopes ScopeSet) error {
+	if len(scopes) == 0 {
+		return nil
+	}
+	return &excessScopeError{
+		s: "Expecting Empty Scope",
+	}
+}
+
 // RequireAnyScope returns a KeyClaimedScopesValidator instance ensuring that
 // at least one element in scopes is claimed by an incoming set of scopes.
 func RequireAnyScope(scopes ...Scope) KeyClaimedScopesValidator {
-	return &anyScopesRequiredValidator{
-		scopes: scopes,
-	}
+	return &anyScopesRequiredValidator{}
+}
+
+// EmptyScope returns a KeyClaimedScopesValidator instance ensuring that
+// it does not contain any scopes used to allow access to operation that does not
+// need authentication but also ensures that the Operation is valid
+func EmptyScope() KeyClaimedScopesValidator {
+	return &emptyScopesRequiredValidator{}
 }
 
 // Authorizer authorizes incoming requests.
@@ -288,6 +314,14 @@ func (a *Authorizer) setKeys(keys []interface{}) {
 // accompanying bearer tokens.
 func (a *Authorizer) AuthInterceptor(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (interface{}, error) {
 
+	if validator, known := a.scopesValidators[Operation(info.FullMethod)]; known {
+		emptyScope := ScopeSet{}
+		if err := validator.ValidateKeyClaimedScopes(ctx, emptyScope); err == nil {
+			// Operation requires Empty scope and is a valid operation
+			// otherwise proceed to validating token
+			return handler(ContextWithOwner(ctx, models.Owner("AuxServices")), req)
+		}
+	}
 	tknStr, ok := getToken(ctx)
 	if !ok {
 		return nil, stacktrace.NewErrorWithCode(dsserr.Unauthenticated, "Missing access token")

@@ -6,6 +6,18 @@ import "google/api/annotations.proto";
 
 option go_package = "pkg/api/v1/auxpb";
 
+message Healthy {
+  string as_string = 1;
+}
+message GetHealthyRequest {
+  // GetHealthyRequest accepts no parameters
+}
+
+message GetHealthyResponse {
+  // Returns Nothing.
+  Healthy healthy = 1;
+}
+
 // Version models the version of the DSS.
 //
 // Follows https://semver.org/
@@ -68,6 +80,15 @@ service DSSAuxService {
   rpc ValidateOauth(ValidateOauthRequest) returns (ValidateOauthResponse) {
     option (google.api.http) = {
       get: "/aux/v1/validate_oauth"
+    };
+  }
+
+  // /dss/healthy
+  //
+  // Checks the health status DSS.
+  rpc GetHealthy(GetHealthyRequest) returns (GetHealthyResponse) {
+    option (google.api.http) = {
+      get: "/aux/v1/healthy"
     };
   }
 }

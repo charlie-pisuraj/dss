@@ -18,6 +18,9 @@ type Server struct{}
 func (a *Server) AuthScopes() map[auth.Operation]auth.KeyClaimedScopesValidator {
 	return map[auth.Operation]auth.KeyClaimedScopesValidator{
 		"/auxpb.DSSAuxService/ValidateOauth": auth.RequireAnyScope(ridserver.Scopes.ISA.Read, ridserver.Scopes.ISA.Write),
+		// Require Empty Scopes
+		"/auxpb.DSSAuxService/GetVersion": auth.EmptyScope(),
+		"/auxpb.DSSAuxService/GetHealthy": auth.EmptyScope(),
 	}
 }
 
@@ -40,4 +43,13 @@ func (a *Server) ValidateOauth(ctx context.Context, req *auxpb.ValidateOauthRequ
 		return nil, stacktrace.NewErrorWithCode(dsserr.PermissionDenied, "Owner mismatch, required: %s, but oauth token has %s", req.Owner, owner)
 	}
 	return &auxpb.ValidateOauthResponse{}, nil
+}
+
+// GetHealthy returns "ok" if server is healthy.
+func (a *Server) GetHealthy(context.Context, *auxpb.GetHealthyRequest) (*auxpb.GetHealthyResponse, error) {
+	return &auxpb.GetHealthyResponse{
+		Healthy: &auxpb.Healthy{
+			AsString: "ok",
+		},
+	}, nil
 }

@@ -30,6 +30,139 @@ const (
 // of the legacy proto package is being used.
 const _ = proto.ProtoPackageIsVersion4
 
+type Healthy struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	AsString string `protobuf:"bytes,1,opt,name=as_string,json=asString,proto3" json:"as_string,omitempty"`
+}
+
+func (x *Healthy) Reset() {
+	*x = Healthy{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[0]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Healthy) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Healthy) ProtoMessage() {}
+
+func (x *Healthy) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[0]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Healthy.ProtoReflect.Descriptor instead.
+func (*Healthy) Descriptor() ([]byte, []int) {
+	return file_pkg_api_v1_auxpb_aux_service_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *Healthy) GetAsString() string {
+	if x != nil {
+		return x.AsString
+	}
+	return ""
+}
+
+type GetHealthyRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *GetHealthyRequest) Reset() {
+	*x = GetHealthyRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetHealthyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHealthyRequest) ProtoMessage() {}
+
+func (x *GetHealthyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHealthyRequest.ProtoReflect.Descriptor instead.
+func (*GetHealthyRequest) Descriptor() ([]byte, []int) {
+	return file_pkg_api_v1_auxpb_aux_service_proto_rawDescGZIP(), []int{1}
+}
+
+type GetHealthyResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Returns Nothing.
+	Healthy *Healthy `protobuf:"bytes,1,opt,name=healthy,proto3" json:"healthy,omitempty"`
+}
+
+func (x *GetHealthyResponse) Reset() {
+	*x = GetHealthyResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetHealthyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHealthyResponse) ProtoMessage() {}
+
+func (x *GetHealthyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHealthyResponse.ProtoReflect.Descriptor instead.
+func (*GetHealthyResponse) Descriptor() ([]byte, []int) {
+	return file_pkg_api_v1_auxpb_aux_service_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *GetHealthyResponse) GetHealthy() *Healthy {
+	if x != nil {
+		return x.Healthy
+	}
+	return nil
+}
+
 // Version models the version of the DSS.
 //
 // Follows https://semver.org/
@@ -44,7 +177,7 @@ type Version struct {
 func (x *Version) Reset() {
 	*x = Version{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[0]
+		mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -57,7 +190,7 @@ func (x *Version) String() string {
 func (*Version) ProtoMessage() {}
 
 func (x *Version) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[0]
+	mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -70,7 +203,7 @@ func (x *Version) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Version.ProtoReflect.Descriptor instead.
 func (*Version) Descriptor() ([]byte, []int) {
-	return file_pkg_api_v1_auxpb_aux_service_proto_rawDescGZIP(), []int{0}
+	return file_pkg_api_v1_auxpb_aux_service_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *Version) GetAsString() string {
@@ -89,7 +222,7 @@ type GetVersionRequest struct {
 func (x *GetVersionRequest) Reset() {
 	*x = GetVersionRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[1]
+		mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -102,7 +235,7 @@ func (x *GetVersionRequest) String() string {
 func (*GetVersionRequest) ProtoMessage() {}
 
 func (x *GetVersionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[1]
+	mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -115,7 +248,7 @@ func (x *GetVersionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVersionRequest.ProtoReflect.Descriptor instead.
 func (*GetVersionRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_api_v1_auxpb_aux_service_proto_rawDescGZIP(), []int{1}
+	return file_pkg_api_v1_auxpb_aux_service_proto_rawDescGZIP(), []int{4}
 }
 
 type GetVersionResponse struct {
@@ -130,7 +263,7 @@ type GetVersionResponse struct {
 func (x *GetVersionResponse) Reset() {
 	*x = GetVersionResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[2]
+		mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -143,7 +276,7 @@ func (x *GetVersionResponse) String() string {
 func (*GetVersionResponse) ProtoMessage() {}
 
 func (x *GetVersionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[2]
+	mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -156,7 +289,7 @@ func (x *GetVersionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVersionResponse.ProtoReflect.Descriptor instead.
 func (*GetVersionResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_api_v1_auxpb_aux_service_proto_rawDescGZIP(), []int{2}
+	return file_pkg_api_v1_auxpb_aux_service_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetVersionResponse) GetVersion() *Version {
@@ -178,7 +311,7 @@ type ValidateOauthRequest struct {
 func (x *ValidateOauthRequest) Reset() {
 	*x = ValidateOauthRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[3]
+		mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -191,7 +324,7 @@ func (x *ValidateOauthRequest) String() string {
 func (*ValidateOauthRequest) ProtoMessage() {}
 
 func (x *ValidateOauthRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[3]
+	mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -204,7 +337,7 @@ func (x *ValidateOauthRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ValidateOauthRequest.ProtoReflect.Descriptor instead.
 func (*ValidateOauthRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_api_v1_auxpb_aux_service_proto_rawDescGZIP(), []int{3}
+	return file_pkg_api_v1_auxpb_aux_service_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *ValidateOauthRequest) GetOwner() string {
@@ -224,7 +357,7 @@ type ValidateOauthResponse struct {
 func (x *ValidateOauthResponse) Reset() {
 	*x = ValidateOauthResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[4]
+		mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -237,7 +370,7 @@ func (x *ValidateOauthResponse) String() string {
 func (*ValidateOauthResponse) ProtoMessage() {}
 
 func (x *ValidateOauthResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[4]
+	mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -250,7 +383,7 @@ func (x *ValidateOauthResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ValidateOauthResponse.ProtoReflect.Descriptor instead.
 func (*ValidateOauthResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_api_v1_auxpb_aux_service_proto_rawDescGZIP(), []int{4}
+	return file_pkg_api_v1_auxpb_aux_service_proto_rawDescGZIP(), []int{7}
 }
 
 // Error response format for most errors
@@ -259,16 +392,27 @@ type StandardErrorResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Error   string `protobuf:"bytes,1,opt,name=error,proto3" json:"error,omitempty"`
-	Code    int32  `protobuf:"varint,2,opt,name=code,proto3" json:"code,omitempty"`
+	// Human-readable error message; should be identical to `message` content.
+	Error string `protobuf:"bytes,1,opt,name=error,proto3" json:"error,omitempty"`
+	// Code for error category; uses standard gRPC response codes*, plus some
+	// additional custom codes defined for this project (see
+	// pkg/errors/errors.go).
+	//
+	// *https://developers.google.com/maps-booking/reference/grpc-api/status_codes
+	Code int32 `protobuf:"varint,2,opt,name=code,proto3" json:"code,omitempty"`
+	// Human-readable error message.  Required by ASTM standards' APIs in most
+	// error responses.
 	Message string `protobuf:"bytes,3,opt,name=message,proto3" json:"message,omitempty"`
+	// ID of error in the format E:<UUID> which allows fast lookups in the DSS
+	// logs to relate a client's observed error response from the DSS to the
+	// detailed logs related to that error in the internal DSS logs.
 	ErrorId string `protobuf:"bytes,4,opt,name=error_id,json=errorId,proto3" json:"error_id,omitempty"`
 }
 
 func (x *StandardErrorResponse) Reset() {
 	*x = StandardErrorResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[5]
+		mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -281,7 +425,7 @@ func (x *StandardErrorResponse) String() string {
 func (*StandardErrorResponse) ProtoMessage() {}
 
 func (x *StandardErrorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[5]
+	mi := &file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -294,7 +438,7 @@ func (x *StandardErrorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StandardErrorResponse.ProtoReflect.Descriptor instead.
 func (*StandardErrorResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_api_v1_auxpb_aux_service_proto_rawDescGZIP(), []int{5}
+	return file_pkg_api_v1_auxpb_aux_service_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *StandardErrorResponse) GetError() string {
@@ -332,42 +476,56 @@ var file_pkg_api_v1_auxpb_aux_service_proto_rawDesc = []byte{
 	0x70, 0x62, 0x2f, 0x61, 0x75, 0x78, 0x5f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x70,
 	0x72, 0x6f, 0x74, 0x6f, 0x12, 0x05, 0x61, 0x75, 0x78, 0x70, 0x62, 0x1a, 0x1c, 0x67, 0x6f, 0x6f,
 	0x67, 0x6c, 0x65, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x61, 0x6e, 0x6e, 0x6f, 0x74, 0x61, 0x74, 0x69,
-	0x6f, 0x6e, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x26, 0x0a, 0x07, 0x56, 0x65, 0x72,
-	0x73, 0x69, 0x6f, 0x6e, 0x12, 0x1b, 0x0a, 0x09, 0x61, 0x73, 0x5f, 0x73, 0x74, 0x72, 0x69, 0x6e,
+	0x6f, 0x6e, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x26, 0x0a, 0x07, 0x48, 0x65, 0x61,
+	0x6c, 0x74, 0x68, 0x79, 0x12, 0x1b, 0x0a, 0x09, 0x61, 0x73, 0x5f, 0x73, 0x74, 0x72, 0x69, 0x6e,
 	0x67, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x61, 0x73, 0x53, 0x74, 0x72, 0x69, 0x6e,
-	0x67, 0x22, 0x13, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x56, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x3e, 0x0a, 0x12, 0x47, 0x65, 0x74, 0x56, 0x65, 0x72,
-	0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x28, 0x0a, 0x07,
-	0x76, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0e, 0x2e,
-	0x61, 0x75, 0x78, 0x70, 0x62, 0x2e, 0x56, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x07, 0x76,
-	0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x22, 0x2c, 0x0a, 0x14, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61,
-	0x74, 0x65, 0x4f, 0x61, 0x75, 0x74, 0x68, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x14,
-	0x0a, 0x05, 0x6f, 0x77, 0x6e, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x6f,
-	0x77, 0x6e, 0x65, 0x72, 0x22, 0x17, 0x0a, 0x15, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65,
-	0x4f, 0x61, 0x75, 0x74, 0x68, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x76, 0x0a,
-	0x15, 0x53, 0x74, 0x61, 0x6e, 0x64, 0x61, 0x72, 0x64, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x52, 0x65,
-	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x12, 0x12, 0x0a, 0x04,
-	0x63, 0x6f, 0x64, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x05, 0x52, 0x04, 0x63, 0x6f, 0x64, 0x65,
-	0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x12, 0x19, 0x0a, 0x08, 0x65, 0x72,
-	0x72, 0x6f, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x65, 0x72,
-	0x72, 0x6f, 0x72, 0x49, 0x64, 0x32, 0xd7, 0x01, 0x0a, 0x0d, 0x44, 0x53, 0x53, 0x41, 0x75, 0x78,
-	0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x5a, 0x0a, 0x0a, 0x47, 0x65, 0x74, 0x56, 0x65,
-	0x72, 0x73, 0x69, 0x6f, 0x6e, 0x12, 0x18, 0x2e, 0x61, 0x75, 0x78, 0x70, 0x62, 0x2e, 0x47, 0x65,
-	0x74, 0x56, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
-	0x19, 0x2e, 0x61, 0x75, 0x78, 0x70, 0x62, 0x2e, 0x47, 0x65, 0x74, 0x56, 0x65, 0x72, 0x73, 0x69,
-	0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x17, 0x82, 0xd3, 0xe4, 0x93,
-	0x02, 0x11, 0x12, 0x0f, 0x2f, 0x61, 0x75, 0x78, 0x2f, 0x76, 0x31, 0x2f, 0x76, 0x65, 0x72, 0x73,
-	0x69, 0x6f, 0x6e, 0x12, 0x6a, 0x0a, 0x0d, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x4f,
-	0x61, 0x75, 0x74, 0x68, 0x12, 0x1b, 0x2e, 0x61, 0x75, 0x78, 0x70, 0x62, 0x2e, 0x56, 0x61, 0x6c,
-	0x69, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x61, 0x75, 0x74, 0x68, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x1a, 0x1c, 0x2e, 0x61, 0x75, 0x78, 0x70, 0x62, 0x2e, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61,
-	0x74, 0x65, 0x4f, 0x61, 0x75, 0x74, 0x68, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
-	0x1e, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x18, 0x12, 0x16, 0x2f, 0x61, 0x75, 0x78, 0x2f, 0x76, 0x31,
-	0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x5f, 0x6f, 0x61, 0x75, 0x74, 0x68, 0x42,
-	0x12, 0x5a, 0x10, 0x70, 0x6b, 0x67, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x76, 0x31, 0x2f, 0x61, 0x75,
-	0x78, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x67, 0x22, 0x13, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x79, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x3e, 0x0a, 0x12, 0x47, 0x65, 0x74, 0x48, 0x65, 0x61,
+	0x6c, 0x74, 0x68, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x28, 0x0a, 0x07,
+	0x68, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0e, 0x2e,
+	0x61, 0x75, 0x78, 0x70, 0x62, 0x2e, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x79, 0x52, 0x07, 0x68,
+	0x65, 0x61, 0x6c, 0x74, 0x68, 0x79, 0x22, 0x26, 0x0a, 0x07, 0x56, 0x65, 0x72, 0x73, 0x69, 0x6f,
+	0x6e, 0x12, 0x1b, 0x0a, 0x09, 0x61, 0x73, 0x5f, 0x73, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x61, 0x73, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x22, 0x13,
+	0x0a, 0x11, 0x47, 0x65, 0x74, 0x56, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x22, 0x3e, 0x0a, 0x12, 0x47, 0x65, 0x74, 0x56, 0x65, 0x72, 0x73, 0x69, 0x6f,
+	0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x28, 0x0a, 0x07, 0x76, 0x65, 0x72,
+	0x73, 0x69, 0x6f, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0e, 0x2e, 0x61, 0x75, 0x78,
+	0x70, 0x62, 0x2e, 0x56, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x07, 0x76, 0x65, 0x72, 0x73,
+	0x69, 0x6f, 0x6e, 0x22, 0x2c, 0x0a, 0x14, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x4f,
+	0x61, 0x75, 0x74, 0x68, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x14, 0x0a, 0x05, 0x6f,
+	0x77, 0x6e, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x6f, 0x77, 0x6e, 0x65,
+	0x72, 0x22, 0x17, 0x0a, 0x15, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x61, 0x75,
+	0x74, 0x68, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x76, 0x0a, 0x15, 0x53, 0x74,
+	0x61, 0x6e, 0x64, 0x61, 0x72, 0x64, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x63, 0x6f, 0x64,
+	0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x05, 0x52, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x12, 0x18, 0x0a,
+	0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07,
+	0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x12, 0x19, 0x0a, 0x08, 0x65, 0x72, 0x72, 0x6f, 0x72,
+	0x5f, 0x69, 0x64, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x65, 0x72, 0x72, 0x6f, 0x72,
+	0x49, 0x64, 0x32, 0xb3, 0x02, 0x0a, 0x0d, 0x44, 0x53, 0x53, 0x41, 0x75, 0x78, 0x53, 0x65, 0x72,
+	0x76, 0x69, 0x63, 0x65, 0x12, 0x5a, 0x0a, 0x0a, 0x47, 0x65, 0x74, 0x56, 0x65, 0x72, 0x73, 0x69,
+	0x6f, 0x6e, 0x12, 0x18, 0x2e, 0x61, 0x75, 0x78, 0x70, 0x62, 0x2e, 0x47, 0x65, 0x74, 0x56, 0x65,
+	0x72, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x19, 0x2e, 0x61,
+	0x75, 0x78, 0x70, 0x62, 0x2e, 0x47, 0x65, 0x74, 0x56, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x17, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x11, 0x12,
+	0x0f, 0x2f, 0x61, 0x75, 0x78, 0x2f, 0x76, 0x31, 0x2f, 0x76, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e,
+	0x12, 0x6a, 0x0a, 0x0d, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x61, 0x75, 0x74,
+	0x68, 0x12, 0x1b, 0x2e, 0x61, 0x75, 0x78, 0x70, 0x62, 0x2e, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61,
+	0x74, 0x65, 0x4f, 0x61, 0x75, 0x74, 0x68, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1c,
+	0x2e, 0x61, 0x75, 0x78, 0x70, 0x62, 0x2e, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x4f,
+	0x61, 0x75, 0x74, 0x68, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x1e, 0x82, 0xd3,
+	0xe4, 0x93, 0x02, 0x18, 0x12, 0x16, 0x2f, 0x61, 0x75, 0x78, 0x2f, 0x76, 0x31, 0x2f, 0x76, 0x61,
+	0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x5f, 0x6f, 0x61, 0x75, 0x74, 0x68, 0x12, 0x5a, 0x0a, 0x0a,
+	0x47, 0x65, 0x74, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x79, 0x12, 0x18, 0x2e, 0x61, 0x75, 0x78,
+	0x70, 0x62, 0x2e, 0x47, 0x65, 0x74, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x79, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x19, 0x2e, 0x61, 0x75, 0x78, 0x70, 0x62, 0x2e, 0x47, 0x65, 0x74,
+	0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
+	0x17, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x11, 0x12, 0x0f, 0x2f, 0x61, 0x75, 0x78, 0x2f, 0x76, 0x31,
+	0x2f, 0x68, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x79, 0x42, 0x12, 0x5a, 0x10, 0x70, 0x6b, 0x67, 0x2f,
+	0x61, 0x70, 0x69, 0x2f, 0x76, 0x31, 0x2f, 0x61, 0x75, 0x78, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -382,26 +540,32 @@ func file_pkg_api_v1_auxpb_aux_service_proto_rawDescGZIP() []byte {
 	return file_pkg_api_v1_auxpb_aux_service_proto_rawDescData
 }
 
-var file_pkg_api_v1_auxpb_aux_service_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_pkg_api_v1_auxpb_aux_service_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_pkg_api_v1_auxpb_aux_service_proto_goTypes = []interface{}{
-	(*Version)(nil),               // 0: auxpb.Version
-	(*GetVersionRequest)(nil),     // 1: auxpb.GetVersionRequest
-	(*GetVersionResponse)(nil),    // 2: auxpb.GetVersionResponse
-	(*ValidateOauthRequest)(nil),  // 3: auxpb.ValidateOauthRequest
-	(*ValidateOauthResponse)(nil), // 4: auxpb.ValidateOauthResponse
-	(*StandardErrorResponse)(nil), // 5: auxpb.StandardErrorResponse
+	(*Healthy)(nil),               // 0: auxpb.Healthy
+	(*GetHealthyRequest)(nil),     // 1: auxpb.GetHealthyRequest
+	(*GetHealthyResponse)(nil),    // 2: auxpb.GetHealthyResponse
+	(*Version)(nil),               // 3: auxpb.Version
+	(*GetVersionRequest)(nil),     // 4: auxpb.GetVersionRequest
+	(*GetVersionResponse)(nil),    // 5: auxpb.GetVersionResponse
+	(*ValidateOauthRequest)(nil),  // 6: auxpb.ValidateOauthRequest
+	(*ValidateOauthResponse)(nil), // 7: auxpb.ValidateOauthResponse
+	(*StandardErrorResponse)(nil), // 8: auxpb.StandardErrorResponse
 }
 var file_pkg_api_v1_auxpb_aux_service_proto_depIdxs = []int32{
-	0, // 0: auxpb.GetVersionResponse.version:type_name -> auxpb.Version
-	1, // 1: auxpb.DSSAuxService.GetVersion:input_type -> auxpb.GetVersionRequest
-	3, // 2: auxpb.DSSAuxService.ValidateOauth:input_type -> auxpb.ValidateOauthRequest
-	2, // 3: auxpb.DSSAuxService.GetVersion:output_type -> auxpb.GetVersionResponse
-	4, // 4: auxpb.DSSAuxService.ValidateOauth:output_type -> auxpb.ValidateOauthResponse
-	3, // [3:5] is the sub-list for method output_type
-	1, // [1:3] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	0, // 0: auxpb.GetHealthyResponse.healthy:type_name -> auxpb.Healthy
+	3, // 1: auxpb.GetVersionResponse.version:type_name -> auxpb.Version
+	4, // 2: auxpb.DSSAuxService.GetVersion:input_type -> auxpb.GetVersionRequest
+	6, // 3: auxpb.DSSAuxService.ValidateOauth:input_type -> auxpb.ValidateOauthRequest
+	1, // 4: auxpb.DSSAuxService.GetHealthy:input_type -> auxpb.GetHealthyRequest
+	5, // 5: auxpb.DSSAuxService.GetVersion:output_type -> auxpb.GetVersionResponse
+	7, // 6: auxpb.DSSAuxService.ValidateOauth:output_type -> auxpb.ValidateOauthResponse
+	2, // 7: auxpb.DSSAuxService.GetHealthy:output_type -> auxpb.GetHealthyResponse
+	5, // [5:8] is the sub-list for method output_type
+	2, // [2:5] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_pkg_api_v1_auxpb_aux_service_proto_init() }
@@ -411,7 +575,7 @@ func file_pkg_api_v1_auxpb_aux_service_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Version); i {
+			switch v := v.(*Healthy); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -423,7 +587,7 @@ func file_pkg_api_v1_auxpb_aux_service_proto_init() {
 			}
 		}
 		file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetVersionRequest); i {
+			switch v := v.(*GetHealthyRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -435,7 +599,7 @@ func file_pkg_api_v1_auxpb_aux_service_proto_init() {
 			}
 		}
 		file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetVersionResponse); i {
+			switch v := v.(*GetHealthyResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -447,7 +611,7 @@ func file_pkg_api_v1_auxpb_aux_service_proto_init() {
 			}
 		}
 		file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ValidateOauthRequest); i {
+			switch v := v.(*Version); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -459,7 +623,7 @@ func file_pkg_api_v1_auxpb_aux_service_proto_init() {
 			}
 		}
 		file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ValidateOauthResponse); i {
+			switch v := v.(*GetVersionRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -471,6 +635,42 @@ func file_pkg_api_v1_auxpb_aux_service_proto_init() {
 			}
 		}
 		file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetVersionResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ValidateOauthRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ValidateOauthResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_pkg_api_v1_auxpb_aux_service_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*StandardErrorResponse); i {
 			case 0:
 				return &v.state
@@ -489,7 +689,7 @@ func file_pkg_api_v1_auxpb_aux_service_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_pkg_api_v1_auxpb_aux_service_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   9,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -523,6 +723,10 @@ type DSSAuxServiceClient interface {
 	//
 	// Validate Oauth token against the DSS.
 	ValidateOauth(ctx context.Context, in *ValidateOauthRequest, opts ...grpc.CallOption) (*ValidateOauthResponse, error)
+	// /dss/healthy
+	//
+	// Checks the health status DSS.
+	GetHealthy(ctx context.Context, in *GetHealthyRequest, opts ...grpc.CallOption) (*GetHealthyResponse, error)
 }
 
 type dSSAuxServiceClient struct {
@@ -551,6 +755,15 @@ func (c *dSSAuxServiceClient) ValidateOauth(ctx context.Context, in *ValidateOau
 	return out, nil
 }
 
+func (c *dSSAuxServiceClient) GetHealthy(ctx context.Context, in *GetHealthyRequest, opts ...grpc.CallOption) (*GetHealthyResponse, error) {
+	out := new(GetHealthyResponse)
+	err := c.cc.Invoke(ctx, "/auxpb.DSSAuxService/GetHealthy", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // DSSAuxServiceServer is the server API for DSSAuxService service.
 type DSSAuxServiceServer interface {
 	// /dss/version
@@ -561,6 +774,10 @@ type DSSAuxServiceServer interface {
 	//
 	// Validate Oauth token against the DSS.
 	ValidateOauth(context.Context, *ValidateOauthRequest) (*ValidateOauthResponse, error)
+	// /dss/healthy
+	//
+	// Checks the health status DSS.
+	GetHealthy(context.Context, *GetHealthyRequest) (*GetHealthyResponse, error)
 }
 
 // UnimplementedDSSAuxServiceServer can be embedded to have forward compatible implementations.
@@ -572,6 +789,9 @@ func (*UnimplementedDSSAuxServiceServer) GetVersion(context.Context, *GetVersion
 }
 func (*UnimplementedDSSAuxServiceServer) ValidateOauth(context.Context, *ValidateOauthRequest) (*ValidateOauthResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ValidateOauth not implemented")
+}
+func (*UnimplementedDSSAuxServiceServer) GetHealthy(context.Context, *GetHealthyRequest) (*GetHealthyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetHealthy not implemented")
 }
 
 func RegisterDSSAuxServiceServer(s *grpc.Server, srv DSSAuxServiceServer) {
@@ -614,6 +834,24 @@ func _DSSAuxService_ValidateOauth_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _DSSAuxService_GetHealthy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHealthyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DSSAuxServiceServer).GetHealthy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/auxpb.DSSAuxService/GetHealthy",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DSSAuxServiceServer).GetHealthy(ctx, req.(*GetHealthyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _DSSAuxService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "auxpb.DSSAuxService",
 	HandlerType: (*DSSAuxServiceServer)(nil),
@@ -625,6 +863,10 @@ var _DSSAuxService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ValidateOauth",
 			Handler:    _DSSAuxService_ValidateOauth_Handler,
+		},
+		{
+			MethodName: "GetHealthy",
+			Handler:    _DSSAuxService_GetHealthy_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
